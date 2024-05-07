@@ -50,46 +50,77 @@ public class PassWordVerify_TEST {
 
     @Test
     void testValidaContrasenya5(){
-        assertEquals();
-    }
-
-    @Test
-    void testValidaContrasenya5(){
-        assertEquals();
+        PassWord_Result result = PasswordVerify.salida("holA");
+        assertFalse(result.isValid());
+        assertEquals("La contrasenya ha de tenir almenys 8 caràcters\n" +
+                        "La contrasenya ha de contenir almenys 2 números\n" +
+                        "La contrasenya ha de contenir almenys un caràcter especial\n",
+                result.getErrorMessage()
+                );
     }
 
     @Test
     void testValidaContrasenya6(){
-        assertEquals();
+        PassWord_Result result = PasswordVerify.salida("hola!");
+        assertFalse(result.isValid());
+        assertEquals("La contrasenya ha de tenir almenys 8 caràcters\n" +
+                "La contrasenya ha de contenir almenys 2 números\n" +
+                "La contrasenya ha de contenir almenys una lletra majúscula\n",
+                result.getErrorMessage());
     }
 
     @Test
     void testValidaContrasenya7(){
-        assertEquals();
+        PassWord_Result result = PasswordVerify.salida("holaA!");
+        assertFalse(result.isValid());
+        assertEquals("La contrasenya ha de tenir almenys 8 caràcters\n" +
+                "La contrasenya ha de contenir almenys 2 números\n",
+                result.getErrorMessage());
     }
 
     @Test
     void testValidaContrasenya8(){
-        assertEquals();
+        PassWord_Result result = PasswordVerify.salida("hola12!");
+        assertFalse(result.isValid());
+        assertEquals("La contrasenya ha de tenir almenys 8 caràcters\n" +
+                "La contrasenya ha de contenir almenys una lletra majúscula\n",
+                result.getErrorMessage());
     }
 
     @Test
     void testValidaContrasenya9(){
-        assertEquals();
+        PassWord_Result result = PasswordVerify.salida("hola12A");
+        assertFalse(result.isValid());
+        assertEquals("La contrasenya ha de tenir almenys 8 caràcters\n" +
+                "La contrasenya ha de contenir almenys un caràcter especial\n",
+                result.getErrorMessage());
     }
 
     @Test
     void testValidaContrasenya10(){
-        assertEquals();
+        PassWord_Result result = PasswordVerify.salida("holacaracola12");
+        assertFalse(result.isValid());
+        assertEquals( "La contrasenya ha de contenir almenys un caràcter especial\n" +
+                "La contrasenya ha de contenir almenys una lletra majúscula\n",
+                result.getErrorMessage());
     }
 
     @Test
     void testValidaContrasenya11(){
-        assertEquals();
+        PassWord_Result result = PasswordVerify.salida("holacaracola!");
+        assertFalse(result.isValid());
+        assertEquals("La contrasenya ha de contenir almenys una lletra majúscula\n" +
+                "La contrasenya ha de contenir almenys 2 números\n",
+                result.getErrorMessage());
     }
 
     @Test
     void testValidaContrasenya12(){
+        assertEquals();
+    }
+
+    @Test
+    void testValidaContrasenya13(){
         assertEquals();
     }
 }
